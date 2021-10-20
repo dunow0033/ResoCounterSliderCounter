@@ -24,6 +24,11 @@ class MainActivity : AppCompatActivity() {
                         progress * resources.getDimension(R.dimen.text_anim_step) * -1)
 
                 binding.textViewProgress.animate().translationY(translationDistance)
+
+                if(!fromUser) {
+                    binding.textViewProgress.animate().setDuration(500).rotationBy(360f)
+                        .translationY(initialTextViewTranslationY)
+                }
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {
@@ -37,8 +42,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.buttonReset.setOnClickListener{ v ->
             binding.seekBar.progress = 0
-            binding.textViewProgress.animate().setDuration(500).rotationBy(360f)
-                .translationY(initialTextViewTranslationY)
         }
     }
 }
