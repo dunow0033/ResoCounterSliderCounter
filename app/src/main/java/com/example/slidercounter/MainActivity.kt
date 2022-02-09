@@ -14,10 +14,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_main)
+
         val initialTextViewTranslationY = binding.textViewProgress.translationY
 
         binding.seekBar.setOnSeekBarChangeListener(object: SeekBar.OnSeekBarChangeListener{
-            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 binding.textViewProgress.text = progress.toString()
 
                 val translationDistance = (initialTextViewTranslationY +
@@ -31,12 +34,12 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onStartTrackingTouch(p0: SeekBar?) {
-                TODO("Not yet implemented")
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+
             }
 
-            override fun onStopTrackingTouch(p0: SeekBar?) {
-                TODO("Not yet implemented")
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+
             }
         })
 
